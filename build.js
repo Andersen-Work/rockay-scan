@@ -31,6 +31,7 @@ async function init() {
   const dist = path.join(__dirname, 'dist')
   emptyFolder(dist)
   const files = await getSourceFiles(src)
+  fs.copySync(src, dist)
   return false
   emptyFolder(path.join(__dirname, 'dist'))
   const test = await getSourceFiles('./', path.join(__dirname, 'src'))
