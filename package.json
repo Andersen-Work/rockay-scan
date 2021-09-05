@@ -1,0 +1,25 @@
+{
+  "name": "pwa-gen",
+  "version": "1.0.0",
+  "description": "Generates a fully compliant PWA with loader and caching",
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rockay-development/rockay-scan.git"
+  },
+  "keywords": [
+    "pwa"
+  ],
+  "author": "Tobias Andersen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rockay-development/rockay-scan/issues"
+  },
+  "homepage": "https://github.com/rockay-development/rockay-scan#readme",
+  "dependencies": {
+    "fs-extra": "^10.0.0"
+  }
+}

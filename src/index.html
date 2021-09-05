@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+  <head>
+    <title>Scan App</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/color.css"/>
+    <link rel="stylesheet" href="css/loader.css"/>
+    <link rel="stylesheet" href="css/font.css"/>
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#36384C"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  </head>
+  <body>
+    <div id="loader">
+      <div class="container">
+        <svg class="spinner" viewBox="0 0 50 50"><circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle></svg>
+        <div class="help"></div>
+      </div>
+    </div>
+    <div id="main">
+      <section class="closed" id="intro">
+        <h1>Login</h1>
+        <input class="animate" placeholder="Enter your email..." value="" type="email"/>
+        <input class="animate" placeholder="Enter your password..." value="" type="password"/>
+        <button onclick="main.login()">Login</button>
+        <p class="error"></p>
+      </section>
+      <section id="dashboard" class="closed">
+        <div id="interactive" class="viewport"></div>
+        <div id="response"></div>
+        <button style="position: fixed; top: 8px; right: 8px; border-radius: 100%; background: var(--error); padding: 10px 14px;" onclick="if(confirm('Do you wish to log out?')) main.logout()">X</button>
+      </section>
+      <section id="seek" class="closed">
+
+      </section>
+    </div>
+    <script type="text/javascript" src="js/dom.js"></script>
+    <script type="text/javascript" src="js/loader.js"></script>
+  </body>
+</html>
