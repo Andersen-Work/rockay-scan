@@ -2,43 +2,35 @@ const fs = require('fs-extra')
 const path = require('path')
 
 function emptyFolder(path) {
-  fs.rmdirSync(path, {recursive: true})
+  try {
+    fs.rmdirSync(path, {recursive: true})
+  }catch(e){}
   fs.mkdirSync(path)
 }
 
-async function getSourceFiles(path) {
-  return new Promise((resolve, reject)=>{
-    walk(path, resolve)
-  })
+async function filesInFolder(path) {
+  let returnArray = []
+  let files = await fs.readdir(path)
+  for (i in files) {
+    if (!files[i].includes('.')) continue
+    returnArray.push(files[i])
+  }
+  return returnArray
 }
 
-var walk = function(dir, done) {
-  var results = []
-  fs.readdir(dir, function(err, list) {
-    if (err) return done(err)
-    var i = 0
-    (function next() {
-      var file = list[i++]
-      if (!file) return done(null, results)
-      file = path.resolve(dir, file)
-      fs.stat(file, function(err, stat) {
-        if (stat && stat.isDirectory()) {
-          walk(file, function(err, res) {
-            results = results.concat(res)
-            next()
-          })
-        } else {
-          results.push(file)
-          next()
-        }
-      })
-    })()
-  })
+async function getSourceFiles(src) {
+  return {
+    root: await filesInFolder(src),
+    css: await filesInFolder(path.join(src, 'css')),
+    js: await filesInFolder(path.join(src, 'js'))
+  }
 }
 
 async function init() {
-  const files = await getSourceFiles(__dirname)
-  console.log(files)
+  const src = path.join(__dirname, 'src')
+  const dist = path.join(__dirname, 'dist')
+  emptyFolder(dist)
+  const files = await getSourceFiles(src)
   return false
   emptyFolder(path.join(__dirname, 'dist'))
   const test = await getSourceFiles('./', path.join(__dirname, 'src'))
