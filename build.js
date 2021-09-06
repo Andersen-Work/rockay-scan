@@ -1,7 +1,8 @@
 const fs = require('fs-extra')
 const path = require('path')
 const config = require('./config.pwa')
-if(config.minify) const minify = require('minify')
+let minify = false
+if(config.minify) minify = require('minify')
 
 const coreFiles = ['dom.js', 'loader.js']
 
