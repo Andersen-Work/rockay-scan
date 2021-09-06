@@ -1,12 +1,12 @@
 <!DOCTYPE html>
   <head>
-    <title>Scan App</title>
+    <title>{{TITLE}}</title>
     <link rel="stylesheet" href="css/reset.css"/>
     <link rel="stylesheet" href="css/base.css"/>
     <link rel="stylesheet" href="css/color.css"/>
     <link rel="stylesheet" href="css/loader.css"/>
     <link rel="stylesheet" href="css/font.css"/>
-    <link rel="manifest" href="manifest.webmanifest">
+    {{MANIFEST}}
     <meta name="theme-color" content="#36384C"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   </head>
@@ -34,7 +34,7 @@
 
       </section>
     </div>
-    <script type="text/javascript" src="js/dom.js"></script>
-    <script type="text/javascript" src="js/loader.js"></script>
+    <footer>{{AUTHOR}}</footer>
+    {{INJECTEDSCRIPTS}}
   </body>
 </html>

@@ -4,6 +4,8 @@
   "description": "Generates a fully compliant PWA with loader and caching",
   "main": "build.js",
   "scripts": {
+    "build": "node build",
+    "serve": "node build && node serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +22,10 @@
   },
   "homepage": "https://github.com/rockay-development/rockay-scan#readme",
   "dependencies": {
-    "fs-extra": "^10.0.0"
+    "fs-extra": "^10.0.0",
+    "minify": "^7.0.2"
+  },
+  "devDependencies": {
+    "express": "^4.17.1"
   }
 }
